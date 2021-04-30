@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SwitchChallenge</string>
+    <string name="action_filter">Filter</string>
+    <string name="payments_screen_label">Payments</string>
+    <string name="payments_screen_refunded">Refunded payments</string>
+    <string name="payment_details_screen_label">Payment Details</string>
+    <string name="new_payment_screen_label">New Payment</string>
+    <string name="payments_screen_info">Here you will find your payment\'s history</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="cvv">CVV</string>
+    <string name="card_holder">Card Holder\'s name</string>
+    <string name="exp_date_month_hint">MM</string>
+    <string name="tv_slash_label">/</string>
+    <string name="exp_date_year_hint">YY</string>
+    <string name="amount">Amount</string>
+    <string name="amount_hint">0,00</string>
+    <string name="euro_sign">€</string>
+    <string name="confirm_payment">Confirm Payment</string>
+    <string name="exp_date_not_valid">Invalid Date</string>
+    <string name="amount_not_valid">Amount not valid</string>
+    <string name="card_number_not_valid">Not a valid Visa or Mastercard number</string>
+    <string name="cvv_not_valid">CVV not valid</string>
+    <string name="make_new_payment">Make new Payment</string>
+    <string name="payment_info">Payment info</string>
+    <string name="date">Date</string>
+    <string name="refunds">Refunds</string>
+    <string name="total_refunds">Total refunded</string>
+    <string name="amount_to_refund">Refund amount</string>
+    <string name="refund">Refund</string>
+    <string name="amount_exceeds_max_valid">Amount exceeds payment</string>
+    <string name="total_not_refunded">Total not refunded</string>
+    <string name="history">History</string>
+</resources>
