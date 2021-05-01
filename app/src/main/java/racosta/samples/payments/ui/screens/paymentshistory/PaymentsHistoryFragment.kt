@@ -1,4 +1,4 @@
-package racosta.samples.payments.ui.screens
+package racosta.samples.payments.ui.screens.paymentshistory
 
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import racosta.samples.core.model.PaymentWithRefunds
 import racosta.samples.payments.commons.viewBinding
-import racosta.samples.payments.ui.screens.adapter.PaymentsAdapter
+import racosta.samples.payments.ui.screens.paymentshistory.adapter.PaymentsAdapter
 import racosta.samples.payments.ui.viewmodels.PaymentsHistoryViewModel
 import racosta.samples.payments.R
 import racosta.samples.payments.databinding.PaymentsHistoryFragmentBinding

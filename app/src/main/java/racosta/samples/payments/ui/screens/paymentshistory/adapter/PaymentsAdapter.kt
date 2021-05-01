@@ -1,4 +1,4 @@
-package racosta.samples.payments.ui.screens.adapter
+package racosta.samples.payments.ui.screens.paymentshistory.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

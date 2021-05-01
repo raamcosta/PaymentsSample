@@ -1,4 +1,4 @@
-package racosta.samples.payments.ui.screens
+package racosta.samples.payments.ui.screens.newpayment
 
 import android.os.Bundle
 import android.view.View

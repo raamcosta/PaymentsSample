@@ -7,7 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import racosta.samples.core.daoports.DatabaseApi
 import racosta.samples.core.daoports.PaymentsDaoPort
+import racosta.samples.core.daoports.RefundsDaoPort
 import racosta.samples.database.adapters.PaymentsDaoAdapter
+import racosta.samples.database.adapters.RefundsDaoAdapter
 import racosta.samples.database.daos.PaymentsDao
 import racosta.samples.database.daos.RefundsDao
 import racosta.samples.database.model.PaymentEntity
@@ -31,6 +33,10 @@ fun initDb(app: Application): DatabaseApi {
 
         override fun payments(): PaymentsDaoPort {
             return PaymentsDaoAdapter(room.paymentsDao())
+        }
+
+        override fun refunds(): RefundsDaoPort {
+            return RefundsDaoAdapter(room.refundsDao())
         }
     }
 }

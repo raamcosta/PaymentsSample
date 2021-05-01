@@ -7,10 +7,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import racosta.samples.core.logic.ObserveAllPaymentsUseCase
 import racosta.samples.core.model.PaymentWithRefunds
-import racosta.samples.payments.commons.NavigationAction
 import racosta.samples.payments.commons.toNavAction
-import racosta.samples.payments.ui.screens.PaymentsHistoryFragmentDirections
 import racosta.samples.payments.ui.screens.base.BaseViewModel
+import racosta.samples.payments.ui.screens.paymentshistory.PaymentsHistoryFragmentDirections
 
 class PaymentsHistoryViewModel(
     private val observeAllPaymentsUseCase: ObserveAllPaymentsUseCase
@@ -37,12 +36,7 @@ class PaymentsHistoryViewModel(
 
     //region user events
     fun onPaymentClick(payment: PaymentWithRefunds) {
-//        val action: PaymentsHistoryFragmentDirections.ActionToPaymentDetailsFragment =
-//            PaymentsHistoryFragmentDirections.actionToPaymentDetailsFragment(
-//                payment.getPayment().getId()
-//            )
-//
-//        navigate(NavigationAction(action))
+        navigate(PaymentsHistoryFragmentDirections.actionToPaymentDetailsFragment(payment.payment.id).toNavAction())
     }
 
     fun onNewPaymentClick() {

@@ -1,4 +1,4 @@
-package racosta.samples.payments.ui.screens.adapter
+package racosta.samples.payments.ui.screens.paymentshistory.adapter
 
 import racosta.samples.core.model.PaymentWithRefunds
 import androidx.recyclerview.widget.DiffUtil

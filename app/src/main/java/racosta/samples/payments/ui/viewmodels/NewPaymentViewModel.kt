@@ -9,8 +9,8 @@ import racosta.samples.core.logic.SubmitNewPaymentUseCase
 import racosta.samples.payments.commons.ActionValues
 import racosta.samples.payments.commons.NavigationAction
 import racosta.samples.payments.commons.Tagged
-import racosta.samples.payments.ui.screens.NewPaymentFragmentDirections
 import racosta.samples.payments.ui.screens.base.BaseViewModel
+import racosta.samples.payments.ui.screens.newpayment.NewPaymentFragmentDirections
 
 /**
  * ViewModel for the NewPayment screen.

@@ -8,7 +8,9 @@ import racosta.samples.core.commons.PaymentUserInputValidator
 import racosta.samples.core.daoports.DatabaseApi
 import racosta.samples.core.di.coreModule
 import racosta.samples.core.logic.ObserveAllPaymentsUseCase
+import racosta.samples.core.logic.ObservePaymentWithRefundsForIdUseCase
 import racosta.samples.core.logic.SubmitNewPaymentUseCase
+import racosta.samples.core.logic.SubmitNewRefundUseCase
 
 class Core(
     databaseApi: DatabaseApi,
@@ -26,4 +28,8 @@ class Core(
     val paymentInputValidator get() = get<PaymentUserInputValidator>()
 
     val observeAllPaymentsUseCase get() = get<ObserveAllPaymentsUseCase>()
+
+    val observePaymentWithRefundsForIdUseCase get() = get<ObservePaymentWithRefundsForIdUseCase>()
+
+    val submitNewRefundUseCase get() = get<SubmitNewRefundUseCase>()
 }

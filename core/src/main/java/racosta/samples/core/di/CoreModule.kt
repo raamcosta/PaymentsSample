@@ -14,6 +14,8 @@ import racosta.samples.core.commons.PaymentUserInputToModelMapper
 import racosta.samples.core.commons.PaymentUserInputValidator
 import racosta.samples.core.daoports.DatabaseApi
 import racosta.samples.core.logic.ObserveAllPaymentsUseCase
+import racosta.samples.core.logic.ObservePaymentWithRefundsForIdUseCase
+import racosta.samples.core.logic.SubmitNewRefundUseCase
 
 internal fun coreModule(
     databaseApi: DatabaseApi,
@@ -28,10 +30,13 @@ internal fun coreModule(
 
     //db
     factory { databaseApi.payments() }
+    factory { databaseApi.refunds() }
 
     //core logic
     factory { SubmitNewPaymentUseCase(get(), get()) }
     factory { ObserveAllPaymentsUseCase(get()) }
+    factory { ObservePaymentWithRefundsForIdUseCase(get()) }
+    factory { SubmitNewRefundUseCase(get(), get(), get()) }
 }
 
 private inline fun <reified T> Module.factoryWithLogger(
