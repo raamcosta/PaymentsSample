@@ -17,8 +17,9 @@ val appModule = module {
     //core components
     factory { get<Core>().submitNewPaymentUseCase }
     factory { get<Core>().paymentInputValidator }
+    factory { get<Core>().observeAllPaymentsUseCase }
 
     //view models
-    viewModel { PaymentsHistoryViewModel() }
+    viewModel { PaymentsHistoryViewModel(get()) }
     viewModel { NewPaymentViewModel(get(), get()) }
 }

@@ -7,6 +7,7 @@ import racosta.samples.commons.Logger
 import racosta.samples.core.commons.PaymentUserInputValidator
 import racosta.samples.core.daoports.DatabaseApi
 import racosta.samples.core.di.coreModule
+import racosta.samples.core.logic.ObserveAllPaymentsUseCase
 import racosta.samples.core.logic.SubmitNewPaymentUseCase
 
 class Core(
@@ -21,5 +22,8 @@ class Core(
     override fun getKoin() = koin
 
     val submitNewPaymentUseCase get() = get<SubmitNewPaymentUseCase>()
+
     val paymentInputValidator get() = get<PaymentUserInputValidator>()
+
+    val observeAllPaymentsUseCase get() = get<ObserveAllPaymentsUseCase>()
 }

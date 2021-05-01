@@ -13,8 +13,9 @@ import racosta.samples.core.commons.CurrentDateProvider
 import racosta.samples.core.commons.PaymentUserInputToModelMapper
 import racosta.samples.core.commons.PaymentUserInputValidator
 import racosta.samples.core.daoports.DatabaseApi
+import racosta.samples.core.logic.ObserveAllPaymentsUseCase
 
-fun coreModule(
+internal fun coreModule(
     databaseApi: DatabaseApi,
     loggerFactory: LoggerFactory,
 ) = module {
@@ -30,6 +31,7 @@ fun coreModule(
 
     //core logic
     factory { SubmitNewPaymentUseCase(get(), get()) }
+    factory { ObserveAllPaymentsUseCase(get()) }
 }
 
 private inline fun <reified T> Module.factoryWithLogger(

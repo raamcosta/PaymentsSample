@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import racosta.samples.core.model.PaymentWithRefunds
 import racosta.samples.payments.commons.viewBinding
 import racosta.samples.payments.ui.screens.adapter.PaymentsAdapter
 import racosta.samples.payments.ui.viewmodels.PaymentsHistoryViewModel
@@ -46,32 +47,32 @@ class PaymentsHistoryFragment : BaseFragment(R.layout.payments_history_fragment)
     }
 
     private fun setUpUiStateObservers() {
-//        viewModel.getPayments().observe(viewLifecycleOwner) { payments ->
-//            if (payments.isEmpty()) {
-//                binding.tvScreenInfo.visibility = View.VISIBLE
-//                binding.rvPayments.visibility = View.INVISIBLE
-//            } else {
-//                binding.tvScreenInfo.visibility = View.INVISIBLE
-//                binding.rvPayments.visibility = View.VISIBLE
-//            }
-//            adapter.setPayments(payments)
-//        }
-//
-//        viewModel.isFiltering().observe(viewLifecycleOwner) { isFiltering ->
-//            if (isFiltering) {
-//                myActivity.setAppBarTitle(R.string.payments_screen_refunded)
-//            } else {
-//                myActivity.setAppBarTitle(R.string.payments_screen_label)
-//            }
-//        }
+        viewModel.payments.observe(viewLifecycleOwner) { payments ->
+            if (payments.isEmpty()) {
+                binding.tvScreenInfo.visibility = View.VISIBLE
+                binding.rvPayments.visibility = View.INVISIBLE
+            } else {
+                binding.tvScreenInfo.visibility = View.INVISIBLE
+                binding.rvPayments.visibility = View.VISIBLE
+            }
+            adapter.setPayments(payments)
+        }
+
+        viewModel.isFiltering.observe(viewLifecycleOwner) { isFiltering ->
+            if (isFiltering) {
+                myActivity.setAppBarTitle(R.string.payments_screen_refunded)
+            } else {
+                myActivity.setAppBarTitle(R.string.payments_screen_label)
+            }
+        }
     }
 
     private fun setUpUserEventListeners() {
         binding.fabNewPayment.setOnClickListener { viewModel.onNewPaymentClick() }
     }
 
-//    override fun onPaymentClick(payment: PaymentWithRefunds) {
-//        viewModel.onPaymentClick(payment)
-//    }
+    override fun onPaymentClick(payment: PaymentWithRefunds) {
+        viewModel.onPaymentClick(payment)
+    }
 
 }
