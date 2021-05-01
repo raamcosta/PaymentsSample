@@ -7,22 +7,41 @@
 
     <fragment
         android:id="@+id/PaymentsHistoryFragment"
-        android:name="racosta.samples.paymentssample.ui.screens.PaymentsHistoryFragment"
-        android:label="@string/payments_history_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:name="racosta.samples.payments.ui.screens.PaymentsHistoryFragment"
+        android:label="@string/payments_screen_label"
+        tools:layout="@layout/payments_history_fragment">
+
+<!--        <action-->
+<!--            android:id="@+id/action_to_PaymentDetailsFragment"-->
+<!--            app:destination="@id/PaymentDetailsFragment" />-->
 
         <action
-            android:id="@+id/action_PaymentsHistoryFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_to_NewPaymentFragment"
+            app:destination="@id/NewPaymentFragment" />
     </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/PaymentDetailsFragment"-->
+<!--        android:name="racosta.switchchallenge.ui.screens.paymentdetails.PaymentDetailsFragment"-->
+<!--        android:label="@string/payment_details_screen_label"-->
+<!--        tools:layout="@layout/payment_details_fragment">-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_to_PaymentsHistoryFragment"-->
+<!--            app:destination="@id/PaymentsHistoryFragment" />-->
+<!--        <argument-->
+<!--            android:name="paymentId"-->
+<!--            app:argType="integer" />-->
+<!--    </fragment>-->
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="racosta.samples.paymentssample.ui.screens.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/NewPaymentFragment"
+        android:name="racosta.samples.payments.ui.screens.NewPaymentFragment"
+        android:label="@string/new_payment_screen_label"
+        tools:layout="@layout/new_payment_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_PaymentsHistoryFragment"
-            app:destination="@id/PaymentsHistoryFragment" />
+            android:id="@+id/action_to_PaymentsHistoryFragment"
+            app:destination="@id/PaymentsHistoryFragment"
+            app:popUpTo="@id/NewPaymentFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -10,3 +10,4 @@ rootProject.name = "PaymentsSample"
 include(":app")
 include(":core")
 include(":commons")
+include(":database")

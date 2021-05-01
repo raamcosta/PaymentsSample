@@ -1,13 +1,14 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("androidx.navigation.safeargs")
 }
 
 android {
     compileSdk = 30
 
     defaultConfig {
-        applicationId = "racosta.samples.paymentssample"
+        applicationId = "racosta.samples.payment"
         minSdk = 23
         targetSdk = 30
         versionCode = 1
@@ -41,6 +42,7 @@ dependencies {
 
     implementation(project(mapOf("path" to ":commons")))
     implementation(project(mapOf("path" to ":core")))
+    implementation(project(mapOf("path" to ":database")))
 
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
@@ -49,6 +51,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
 
     val koinVersion = "3.0.1"
     // Koin main features for Android (Scope,ViewModel ...)

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SwitchChallenge</string>
+    <string name="app_name">PaymentsSample</string>
     <string name="action_filter">Filter</string>
     <string name="payments_screen_label">Payments</string>
     <string name="payments_screen_refunded">Refunded payments</string>
