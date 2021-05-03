@@ -41,7 +41,7 @@ class PaymentDetailsViewModel(
 
     init {
         viewModelScope.launch {
-            observePaymentWithRefundsForIdUseCase.paymentWithRefunds(paymentId).collect {
+            observePaymentWithRefundsForIdUseCase.paymentWithRefunds(paymentId)?.collect {
                 internalPaymentWithRefunds = it
                 interalRefundedTotal = it.refundedTotal
 

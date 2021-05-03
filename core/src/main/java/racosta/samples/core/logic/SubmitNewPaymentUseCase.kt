@@ -3,11 +3,11 @@ package racosta.samples.core.logic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import racosta.samples.core.commons.PaymentUserInputToModelMapper
-import racosta.samples.core.daoports.PaymentsDaoPort
 import racosta.samples.core.model.Payment
+import racosta.samples.core.repository.Repository
 
 class SubmitNewPaymentUseCase internal constructor(
-    private val paymentsDao: PaymentsDaoPort,
+    private val repository: Repository,
     private val inputToModelMapper: PaymentUserInputToModelMapper
 ) {
 
@@ -30,6 +30,6 @@ class SubmitNewPaymentUseCase internal constructor(
         )
             ?: throw RuntimeException("UI is accepting invalid payment!")
 
-        paymentsDao.insertAll(payment)
+        repository.addPayments(payment)
     }
 }

@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import racosta.samples.core.daoports.DatabaseApi
-import racosta.samples.core.daoports.PaymentsDaoPort
-import racosta.samples.core.daoports.RefundsDaoPort
+import racosta.samples.core.repository.daoports.DatabaseFacade
+import racosta.samples.core.repository.daoports.PaymentsDaoPort
+import racosta.samples.core.repository.daoports.RefundsDaoPort
 import racosta.samples.database.adapters.PaymentsDaoAdapter
 import racosta.samples.database.adapters.RefundsDaoAdapter
 import racosta.samples.database.daos.PaymentsDao
@@ -27,8 +27,8 @@ internal abstract class PaymentsDatabase : RoomDatabase() {
     internal abstract fun refundsDao(): RefundsDao
 }
 
-fun initDb(app: Application): DatabaseApi {
-    return object: DatabaseApi {
+fun initDb(app: Application): DatabaseFacade {
+    return object: DatabaseFacade {
         val room = Room.databaseBuilder(app, PaymentsDatabase::class.java, DB_NAME).build()
 
         override fun payments(): PaymentsDaoPort {

@@ -1,4 +1,4 @@
-package racosta.samples.core.daoports
+package racosta.samples.core.repository.daoports
 
 import kotlinx.coroutines.flow.Flow
 import racosta.samples.core.model.Payment
@@ -10,7 +10,7 @@ interface PaymentsDaoPort {
 
     fun observePaymentsWithRefunds(): Flow<List<PaymentWithRefunds>>
 
-    fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefunds>
+    fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefunds>?
 
     suspend fun getPaymentWithRefunds(id: Int): PaymentWithRefunds?
 }

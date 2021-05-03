@@ -1,10 +1,7 @@
 package racosta.samples.database.daos
 
 import androidx.annotation.WorkerThread
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 import racosta.samples.database.model.PaymentEntity
 import racosta.samples.database.model.PaymentWithRefundsEntity
@@ -12,7 +9,7 @@ import racosta.samples.database.model.PaymentWithRefundsEntity
 @Dao
 interface PaymentsDao {
     @WorkerThread
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg payments: PaymentEntity?)
 
     @Transaction
@@ -21,7 +18,7 @@ interface PaymentsDao {
 
     @Transaction
     @Query("SELECT * FROM PaymentEntity WHERE id = :id")
-    fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefundsEntity>
+    fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefundsEntity>?
 
     @WorkerThread
     @Transaction

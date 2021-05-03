@@ -1,8 +1,8 @@
 package racosta.samples.core.logic
 
-import racosta.samples.core.daoports.PaymentsDaoPort
+import racosta.samples.core.repository.Repository
 
-class ObservePaymentWithRefundsForIdUseCase(private val paymentsDao: PaymentsDaoPort) {
+class ObservePaymentWithRefundsForIdUseCase internal constructor(private val repository: Repository) {
 
-    fun paymentWithRefunds(id: Int) = paymentsDao.observePaymentWithRefunds(id)
+    fun paymentWithRefunds(id: Int) = repository.observePaymentWithRefunds(id)
 }

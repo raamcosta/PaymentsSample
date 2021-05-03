@@ -2,7 +2,7 @@ package racosta.samples.database.adapters
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import racosta.samples.core.daoports.PaymentsDaoPort
+import racosta.samples.core.repository.daoports.PaymentsDaoPort
 import racosta.samples.core.model.Payment
 import racosta.samples.core.model.PaymentWithRefunds
 import racosta.samples.database.adapters.mappers.toCore
@@ -21,8 +21,8 @@ class PaymentsDaoAdapter(private val paymentsDao: PaymentsDao): PaymentsDaoPort 
         }
     }
 
-    override fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefunds> {
-        return paymentsDao.observePaymentWithRefunds(id).map { it.toCore() }
+    override fun observePaymentWithRefunds(id: Int): Flow<PaymentWithRefunds>? {
+        return paymentsDao.observePaymentWithRefunds(id)?.map { it.toCore() }
     }
 
     override suspend fun getPaymentWithRefunds(id: Int): PaymentWithRefunds? {

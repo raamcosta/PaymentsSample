@@ -5,7 +5,7 @@ import org.koin.core.component.get
 import org.koin.dsl.koinApplication
 import racosta.samples.commons.Logger
 import racosta.samples.core.commons.PaymentUserInputValidator
-import racosta.samples.core.daoports.DatabaseApi
+import racosta.samples.core.repository.daoports.DatabaseFacade
 import racosta.samples.core.di.coreModule
 import racosta.samples.core.logic.ObserveAllPaymentsUseCase
 import racosta.samples.core.logic.ObservePaymentWithRefundsForIdUseCase
@@ -13,13 +13,13 @@ import racosta.samples.core.logic.SubmitNewPaymentUseCase
 import racosta.samples.core.logic.SubmitNewRefundUseCase
 
 class Core(
-    databaseApi: DatabaseApi,
+    databaseFacade: DatabaseFacade,
     loggerFactory: (Class<*>) -> Logger
 ): KoinComponent {
 
     private val koin = koinApplication {
-        modules(coreModule(databaseApi, loggerFactory))
-    }.koin
+        modules(coreModule(databaseFacade, loggerFactory))
+    }.apply { createEagerInstances() }.koin
 
     override fun getKoin() = koin
 
